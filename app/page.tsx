@@ -1,11 +1,18 @@
+import FloatingNav from "@/components/FloatingNav";
+import {HeroSection} from "@/components/HeroSection";
+import BestSellers from "@/components/BestSellers";
+import NewArrival from "@/components/NewArrival";
+import InfoBanner from "@/components/InfoBanner";
+
+
 export default function Home() {
     return (
-        <section className="py-24">
-            <div className="container">
-                <h1 className="text-3xl font-bold">
-                    Hello Welcome!
-                </h1>
-            </div>
-        </section>
+        <>
+            <FloatingNav/>
+            <HeroSection/>
+            <BestSellers/>
+            <NewArrival/>
+            <InfoBanner/>
+        </>
     )
 }
