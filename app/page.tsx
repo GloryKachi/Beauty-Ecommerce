@@ -3,6 +3,8 @@ import {HeroSection} from "@/components/HeroSection";
 import BestSellers from "@/components/BestSellers";
 import NewArrival from "@/components/NewArrival";
 import InfoBanner from "@/components/InfoBanner";
+import ShopByCategory from "@/components/ShopByCategory";
+import OurStory from "@/components/OurStory";
 
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
             <BestSellers/>
             <NewArrival/>
             <InfoBanner/>
+            <ShopByCategory/>
+            {/*<OurStory/>*/}
         </>
     )
 }
