@@ -5,6 +5,7 @@ import NewArrival from "@/components/NewArrival";
 import InfoBanner from "@/components/InfoBanner";
 import ShopByCategory from "@/components/ShopByCategory";
 import OurStory from "@/components/OurStory";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
@@ -16,7 +17,9 @@ export default function Home() {
             <NewArrival/>
             <InfoBanner/>
             <ShopByCategory/>
-            {/*<OurStory/>*/}
+            <OurStory/>
+            <Footer/>
+
         </>
     )
 }
