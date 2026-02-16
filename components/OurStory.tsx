@@ -8,7 +8,7 @@ const OurStory = () => {
                 </h2>
 
                 {/* Main tagline */}
-                <p className="text-3xl md:text-4xl lg:text-5xl font-normal text-[#4a5f52] leading-96 mb-6">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-normal text-[#4a5f52] leading-tight mb-6">
                     born from a passion for beauty rituals, we celebrate individuality and bring radiant confidence to everyone
                 </p>
 

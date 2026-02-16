@@ -130,6 +130,7 @@
             padding-right: 2rem;
         }
     }
+
     /* Custom background utilities for design tokens */
     .bg-category-label {
         background-color: hsl(var(--category-label));
@@ -138,6 +139,55 @@
     .bg-card-surface {
         background-color: hsl(var(--card-surface));
     }
+
+    /* Background utilities */
+    .bg-background {
+        background-color: hsl(var(--background));
+    }
+
+    .bg-foreground {
+        background-color: hsl(var(--foreground));
+    }
+
+    .bg-primary {
+        background-color: hsl(var(--primary));
+    }
+
+    .bg-secondary {
+        background-color: hsl(var(--secondary));
+    }
+
+    .bg-muted {
+        background-color: hsl(var(--muted));
+    }
+
+    /* Border utilities */
+    .border-primary {
+        border-color: hsl(var(--primary));
+    }
+
+    .border-secondary {
+        border-color: hsl(var(--secondary));
+    }
+
+    /* Text utilities */
+    .text-foreground {
+        color: hsl(var(--foreground));
+    }
+
+    .text-muted-foreground {
+        color: hsl(var(--muted-foreground));
+    }
+
+    /* Ring utilities */
+    .ring-ring {
+        --tw-ring-color: hsl(var(--ring));
+    }
+
+    .ring-offset-background {
+        --tw-ring-offset-color: hsl(var(--background));
+    }
+
     /* Hover utilities for design tokens */
     .hover\:bg-foreground:hover {
         background-color: hsl(var(--foreground));
