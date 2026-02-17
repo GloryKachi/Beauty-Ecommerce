@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Minus } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 
@@ -21,12 +22,12 @@ const browseCategories = [
 ];
 
 const products = [
-    { name: "radiant renewal serum", price: 27.0, image: productSerum, badge: "best seller", category: "face care" },
-    { name: "hydraglow moisturizer", price: 32.0, image: productMoisturizer, badge: "best seller", category: "face care" },
-    { name: "radiance cleanser", price: 35.0, image: productOil, badge: "best seller", category: "face care" },
-    { name: "glow face cream", price: 29.0, image: productCream, badge: null, category: "face care" },
-    { name: "revive facial oil", price: 38.0, image: productOil, badge: "new", category: "body care" },
-    { name: "calming toner mist", price: 24.0, image: productToner, badge: null, category: "hair care" },
+    { id: "radiant-renewal-serum", name: "radiant renewal serum", price: 27.0, image: productSerum, badge: "best seller", category: "face care" },
+    { id: "hydraglow-moisturizer", name: "hydraglow moisturizer", price: 32.0, image: productMoisturizer, badge: "best seller", category: "face care" },
+    { id: "radiance-cleanser", name: "radiance cleanser", price: 35.0, image: productOil, badge: "best seller", category: "face care" },
+    { id: "glow-face-cream", name: "glow face cream", price: 29.0, image: productCream, badge: null, category: "face care" },
+    { id: "revive-facial-oil", name: "revive facial oil", price: 38.0, image: productOil, badge: "new", category: "body care" },
+    { id: "calming-toner-mist", name: "calming toner mist", price: 24.0, image: productToner, badge: null, category: "hair care" },
 ];
 
 interface ProductListingProps {
@@ -46,16 +47,13 @@ const ProductListing = ({ initialCategory }: ProductListingProps) => {
     const [activeCategory, setActiveCategory] = useState(mappedCategory);
     const [priceRange, setPriceRange] = useState([25, 35]);
 
-    // Filter products based on active category and price range
     const filteredProducts = products.filter((product) => {
-        // Category filter
         const categoryMatch =
             activeCategory === "All Products" ||
             product.category === activeCategory ||
             (activeCategory === "best sellers" && product.badge === "best seller") ||
             (activeCategory === "new arrivals" && product.badge === "new");
 
-        // Price filter
         const priceMatch = product.price >= priceRange[0] && product.price <= priceRange[1];
 
         return categoryMatch && priceMatch;
@@ -123,13 +121,18 @@ const ProductListing = ({ initialCategory }: ProductListingProps) => {
                 <div className="flex-1">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredProducts.map((product) => (
-                            <div key={product.name} className="group cursor-pointer">
+                            <Link
+                                key={product.id}
+                                href={`/shop/${product.id}`}
+                                className="group cursor-pointer"
+                            >
                                 <div className="relative rounded-3xl overflow-hidden aspect-[3/4] bg-product-card">
                                     <Image
                                         src={product.image}
                                         alt={product.name}
+                                        fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                     {product.badge && (
                                         <span className="absolute top-4 left-4 px-4 py-1.5 bg-product-badge text-foreground text-sm font-medium rounded-md">
@@ -145,7 +148,7 @@ const ProductListing = ({ initialCategory }: ProductListingProps) => {
                                         ${product.price.toFixed(2)}
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
